@@ -1,0 +1,18 @@
+Steps for Copying a Folder from one git repo to another git repo Preserving commit history
+
+mkdir <any source repo name>
+cd <repo name>
+git clone --branch <branch name>  --origin origin --progress  -v <repo URL>
+cd <repo directory>
+git filter-branch --index-filter 'git rm --cached -qr --ignore-unmatch -- . && git reset -q $GIT_COMMIT — <FOLDER_TO_KEEP>' --prune-empty -- —all
+git reset --hard
+git gc --aggressive 
+git prune
+git clean -fd
+clone target repository if you don’t have one already on different folder.
+git clone <target repo URL>
+cd <target repo directory>
+git remote add <any name> <local source git repository directory created in above steps>
+git pull <name mentioned in step 10> <branch name> --allow-unrelated-histories
+git remote rm <name mentioned in step 10>
+git push
