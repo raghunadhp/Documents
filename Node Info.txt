@@ -1,3 +1,16 @@
 #########
 Node Info
 #########
+when "node" is hit from CLI a REPL[Read, Eval, Print, Loop] session will be opened (.exit is used to exit out of node REPL session)
+
+ctrl + l -> this clears the node REPL session.
+
+use ".editor" to open REPL session to write or edit multiline node functions/lines
+use ctrl + d to save the edited lines available to the session
+
+".help" command lists all the sub commands which are useful while working around node.
+"." with TAB gives you the library/API help
+
+TAB TAB -> gives global library/API details.
+
+"_" will always have last evaluated command value. this can be used to get values. similar to $? in bash
